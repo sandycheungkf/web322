@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="coffee">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection - <%= set.name %>    </title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+
+<body tabindex="-1">
+    <%- include('partials/navbar', {page:""}) %>
+
+    <div class="hero bg-base-200 rounded-lg p-6">
+        <div class="hero-content text-center ">
+          <div class="w-md">
+            <h1 class="text-5xl font-bold"><%= set.name %></h1>
+            <p class="py-6">Below, you will find detailed information about the set: <%= set.name %></p>
+          </div>
+        </div>
+      </div>
+      <br>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <img class="w-full rounded-lg" src="<%= set.img_url %>" alt="Set-image">
+                <br>
+            </div>
+            <div class="p-2 ">
+            <span class="font-bold">Set Name: </span><%= set.name %></p>
+            <span class="font-bold">Year Released: </span><%= set.year %></p>
+            <span class="font-bold">Theme: </span><%= set.theme %></p>
+            <span class="font-bold">Number of Parts: </span><%= set.num_parts %></p>
+            <div id="quoteContainer">
+                <i><p id="content"></p></i>
+                <p id="author"></p>                
+            </div>
+
+            <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                    fetch("https://quotable.io/random")
+                        .then(response => response.json())
+                        .then(data => {
+                            const content = document.getElementById('content');
+                            content.innerText = `"${data.content}"`;
+                            const author = document.getElementById('author');
+                            author.innerText = `— ${data.author}`;
+                        })
+                        .catch(error => console.error('Error fetching data:', error));
+                });
+            </script>
+            <br><br><br> 
+                <a href="#" onclick="history.back(); return false;" class="btn btn-xs btn-outline">Back</a>
+      
+            </div>
+      
+          </div>
+
+    </div>
+    </div>
+</body>
+
+</html>

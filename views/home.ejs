@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="coffee">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection</title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+
+<body tabindex="-1">
+    <%- include('partials/navbar', {page: '/'}) %>
+
+    <!-- Center message -->
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 mb-4">
+            <div class="hero-content text-center ">
+                <div class="max-w-md">
+                    <h1 class="text-5xl font-bold ">Hello there</h1>
+                    <p class="py-6">Welcome to the Lego world</p>
+                    <a href="/lego/sets" class="btn btn-primary">Get Started</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            <!-- Card section 1 -->
+            <div class="border-2">
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title">PlayHouse!</h2>
+                        <p>Build a PlayHouse with fun</p>
+                        <div class="card-actions justify-end">
+                            <a href="/lego/sets/041-2" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card section 2 -->
+            <div class="border-2">
+                <div class="card w-96 bg-neutral text-neutral-content">
+                    <div class="card-body">
+                        <h2 class="card-title">Farm!</h2>
+                        <p>Build a Farm with fun</p>
+                        <div class="card-actions justify-end">
+                            <a href="/lego/sets/045-1" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card section 3 -->
+            <div class="border-2">
+                <div class="card w-96 bg-base-100 shadow-xl">
+                    <div class="card-body">
+                        <h2 class="card-title">Lighting Device Pack!</h2>
+                        <p>Build a Lighting Device Pack with fun</p>
+                        <div class="card-actions justify-end">
+                            <a href="/lego/sets/050-2" class="btn btn-primary">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
