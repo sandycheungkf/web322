@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="coffee">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lego Collection - Edit</title>
+    <link href="/css/main.css" rel="stylesheet">
+</head>
+
+<body tabindex="-1">
+    <%- include('partials/navbar', {page: '' }) %>
+
+<!--Form content-->
+<div class="card bg-base-200  max-w-[700px] mx-auto p-5 mt-6">
+    <div class="card bg-base-200 max-w-[700px] mx-auto p-5 mt-6">
+        <h1 class="text-3xl font-semibold mb-4">Edit Set - <%= set.name %></h1>
+
+<form method="post" action="/lego/editSet">
+
+            <!-- User Name Input -->
+            <div class="form-control">
+                <label>Name</label>
+                <input type="text" name="name" value="<%= set.name %>" required />
+            </div>
+
+                         <!-- Year Input -->
+                         <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Year</span>
+                            </label>
+                            <input type="number" name="year" value="<%= set.year %>" required />
+                        </div>            
+            
+
+            <!-- Number of Parts Input -->
+            <div class="form-control">
+                <label class="label">
+                <span class="label-text">Number of Parts</span>
+                </label>
+            <input type="number" name="num_parts" value="<%= set.num_parts %>" required />
+
+            </div>      
+            
+            <!-- img_url Input -->
+             <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Image URL</span>
+                            </label>
+                            <input type="url" name="img_url" value="<%= set.img_url %>" required />
+                        </div>            
+            
+            
+           
+
+            <!-- Select Theme -->
+            <div class="form-control">
+                <label class="label">
+                    <span class="label-text">Theme</span>
+                </label>
+                <select id="theme_id" name="theme_id" required>
+                    <% themes.forEach(theme => { %>
+                        <option <%= (set.theme_id == theme.id) ? "selected" : "" %> value="<%= theme.id %>">
+                            <%= theme.name %>
+                        </option>
+                    <% }) %>
+                  </div>
+
+          
+
+                        <!-- set_num Input -->
+                        <div class="form-control">
+                            <label class="label">
+                                <span class="label-text">Set Num</span>
+                                        </label>
+                                        <input type="text" name="set_num" value="<%= set.set_num %>" readonly class="cursor-not-allowed" />
+                                    </div>            
+            
+
+            <input type="submit" value = "Update Set"/>
+            <a href="/lego/deleteSet/<%= set.set_num %>">Delete</a>
+            
+
+                </form>
+</div>
+
+
+</body>
+
+</html>
