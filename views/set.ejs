@@ -29,7 +29,7 @@
             <div class="p-2 ">
             <span class="font-bold">Set Name: </span><%= set.name %></p>
             <span class="font-bold">Year Released: </span><%= set.year %></p>
-            <span class="font-bold">Theme: </span><%= set.theme %></p>
+            <span class="font-bold">Theme: </span><%= set.Theme.name %></p>
             <span class="font-bold">Number of Parts: </span><%= set.num_parts %></p>
             <div id="quoteContainer">
                 <i><p id="content"></p></i>
@@ -50,7 +50,8 @@
                 });
             </script>
             <br><br><br> 
-                <a href="#" onclick="history.back(); return false;" class="btn btn-xs btn-outline">Back</a>
+            <a href="/lego/editSet/<%= set.set_num %>" class="btn btn-success">Edit</a>
+            <a href="#" onclick="history.back(); return false;" class="btn btn-xs btn-outline">Back</a>
       
             </div>
       
