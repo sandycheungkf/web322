@@ -57,17 +57,18 @@ const sequelize = new Sequelize(process.env.DB_NAME,process.env.DB_USER,process.
   
   Set.belongsTo(Theme, { foreignKey: 'theme_id' });
   
-async function Initialize() {
-  try {
-    await sequelize.sync();
-    console.log("Database synchronized");
-    return Promise.resolve();
-  } catch (error) {
-    console.error("Error synchronizing database:", error);
-    return Promise.reject(error);
+  function Initialize() { 
+    return new Promise(async (resolve, reject) => {
+      try{
+        await sequelize.sync();
+        resolve();
+      }catch(err){
+        reject(err.message)
+      }
+    });
+  
   }
-}
-
+  
 function getAllSets() {
   return Set.findAll({
     include: [Theme],
